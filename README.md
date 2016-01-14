@@ -11,12 +11,12 @@
 
 ####Features
 * Parental Controls
-
-* Internet Content Protection
+ * Parental Login screen for Parental Controls
+ * Internet Content Filter
+ * Ad Filter
+ * History that can't be erased by the child
 
 * Bookmarks
-
-* History that can't be erased by the child
 
 * Multiple search engines (Google, Bing, Yahoo, StartPage, DuckDuckGo, etc.)
 
