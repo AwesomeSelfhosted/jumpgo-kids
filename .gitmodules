@@ -1,0 +1,9 @@
+[submodule "external/netcipher"]
+	path = external/netcipher
+	url = https://github.com/guardianproject/NetCipher.git
+	branch = master
+
+[submodule "external/loginpage"]
+	path = external/loginpage
+	url = https://github.com/sourcey/materiallogindemo.git
+	branch = master
