@@ -37,6 +37,7 @@
  - [ ] Tab Drawer Colors
  - [ ] Bookmarks Drawer Colors
  - [ ] Updated Button Icons
+- [ ] Bonus Game Mode
 
 ####Permissions
 
