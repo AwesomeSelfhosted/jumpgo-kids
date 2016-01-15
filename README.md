@@ -24,6 +24,21 @@
 
 * Orbot Proxy support and I2P support
 
+## Development checklist
+- [x] Parental Controls
+ - [x] Website Blacklist
+ - [ ] Website Whitelist option
+ - [x] Ad Filter
+ - [x] Login Screen
+- [ ] Child Safe Search
+- [x] Kid Theme
+ - [x] Browser Colors
+ - [x] Reading Mode Colors
+ - [ ] Tab Drawer Colors
+ - [ ] Bookmarks Drawer Colors
+ - [ ] Updated Button Icons
+- [ ] Bonus Game Mode
+
 ####Permissions
 
 * ````INTERNET````: For accessing the web
