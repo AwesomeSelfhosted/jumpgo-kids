@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.jtechme.jumpgokids.R;
 
+import java.io.File;
+import java.io.OutputStreamWriter;
+
 import butterknife.ButterKnife;
 import butterknife.Bind;
 
@@ -51,6 +54,12 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
+    private final static String STOREEMAIL="storeemail.txt";
+    //private final static Integer STOREEMAIL=R.raw.ParentalEmail;
+    private final static String STOREPASSWORD="storepassword.txt";
+    public final static String UserEmail="";
+    public final static String UserPassword="";
+
     public void signup() {
         Log.d(TAG, "Signup");
 
@@ -72,6 +81,69 @@ public class SignupActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own signup logic here.
+
+        //parental email
+        try {
+
+            OutputStreamWriter out=
+
+                    //new OutputStreamWriter(openFileOutput(STOREEMAIL, 0));
+                    new OutputStreamWriter(openFileOutput(UserEmail, 0));
+                    //new OutputStreamWriter(openFileOutput(R.raw.ParentalEmail, 0));
+
+            //out.write(txtEditor.getText().toString());
+            //out.write(email.toString());
+            out.write(_emailText.getText().toString());
+
+            out.close();
+
+            Toast
+
+                    .makeText(this, "The contents are saved in the file.", Toast.LENGTH_LONG)
+
+                    .show();
+
+        }
+        catch (Throwable t) {
+
+            Toast
+
+                    .makeText(this, "Exception: "+t.toString(), Toast.LENGTH_LONG)
+
+                    .show();
+
+        }
+        //user password
+        try {
+
+            OutputStreamWriter out=
+
+                    //new OutputStreamWriter(openFileOutput(STOREPASSWORD, 0));
+            new OutputStreamWriter(openFileOutput(UserPassword, 0));
+            //new OutputStreamWriter(openFileOutput(R.raw.ParentalEmail, 0));
+
+            //out.write(txtEditor.getText().toString());
+            //out.write(password.toString());
+            out.write(_passwordText.getText().toString());
+
+            out.close();
+
+            Toast
+
+                    .makeText(this, "The contents are saved in the file.", Toast.LENGTH_LONG)
+
+                    .show();
+
+        }
+        catch (Throwable t) {
+
+            Toast
+
+                    .makeText(this, "Exception: "+t.toString(), Toast.LENGTH_LONG)
+
+                    .show();
+
+        }
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

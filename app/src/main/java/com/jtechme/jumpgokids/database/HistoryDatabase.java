@@ -99,7 +99,7 @@ public class HistoryDatabase extends SQLiteOpenHelper {
     public synchronized void deleteHistoryItem(String url) {
         mLock = true;
         openIfNecessary();
-        mDatabase.delete(TABLE_HISTORY, KEY_URL + " = ?", new String[]{url});
+        //mDatabase.delete(TABLE_HISTORY, KEY_URL + " = ?", new String[]{url});
         mLock = false;
     }
 

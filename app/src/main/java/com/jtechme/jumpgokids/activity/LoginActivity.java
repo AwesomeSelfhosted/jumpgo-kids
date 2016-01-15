@@ -204,6 +204,16 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO: Implement your own authentication logic here.
 
+        if (email.contentEquals(SignupActivity.UserEmail)) {
+            if (password.contentEquals(SignupActivity.UserPassword)) {
+                onLoginSuccess();
+            } else {
+                onLoginFailed();
+            }
+        } else {
+            onLoginFailed();
+        }
+
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -269,6 +279,15 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _emailText.setError(null);
+            if (email.contentEquals(SignupActivity.UserEmail)) {
+                if (password.contentEquals(SignupActivity.UserPassword)) {
+                    onLoginSuccess();
+                } else {
+                    onLoginFailed();
+                }
+            } else {
+                onLoginFailed();
+            }
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
@@ -276,6 +295,15 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _passwordText.setError(null);
+            if (email.contentEquals(SignupActivity.UserEmail)) {
+                if (password.contentEquals(SignupActivity.UserPassword)) {
+                    onLoginSuccess();
+                } else {
+                    onLoginFailed();
+                }
+            } else {
+                onLoginFailed();
+            }
         }
 
         return valid;
