@@ -157,13 +157,13 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.input_password) EditText _passwordText;
     @Bind(R.id.btn_login) Button _loginButton;
     //@Bind(R.id.link_signup) TextView _signupLink;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        
+
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -174,25 +174,17 @@ public class LoginActivity extends AppCompatActivity {
 
         //_signupLink.setOnClickListener(new View.OnClickListener() {
 
-            //@Override
-            //public void onClick(View v) {
-                // Start the Signup activity
-                //Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-                //startActivityForResult(intent, REQUEST_SIGNUP);
-            //}
+        //@Override
+        //public void onClick(View v) {
+        // Start the Signup activity
+        //Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+        //startActivityForResult(intent, REQUEST_SIGNUP);
+        //}
         //});
     }
 
-    String loginEmail = _emailText.getText().toString();
-    String loginPassword = _passwordText.getText().toString();
-
     public void login() {
         Log.d(TAG, "Login");
-
-        final String email = _emailText.getText().toString();
-        loginEmail = _emailText.getText().toString();
-        final String password = _passwordText.getText().toString();
-        loginPassword = _passwordText.getText().toString();
 
         if (!validate()) {
             onLoginFailed();
@@ -207,13 +199,13 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        //String email = _emailText.getText().toString();
-        //String password = _passwordText.getText().toString();
+        final String email = _emailText.getText().toString();
+        final String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
 
-        if (email.contentEquals(SignupActivity.UserEmail)) {
-            if (password.contentEquals(SignupActivity.UserPassword)) {
+        if (email.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail)) {
+            if (password.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword)) {
                 onLoginSuccess();
             } else {
                 onLoginFailed();
@@ -226,16 +218,18 @@ public class LoginActivity extends AppCompatActivity {
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        //if (email.contentEquals(SignupActivity.UserEmail)) {
-                            //if (password.contentEquals(SignupActivity.UserPassword)) {
-                                //onLoginSuccess();
-                            //} else {
-                                //onLoginFailed();
-                            //}
-                        //} else {
-                            //onLoginFailed();
-                        //}
+                        //onLoginSuccess();
+
+                        if (email.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail)) {
+                            if (password.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword)) {
+                                onLoginSuccess();
+                            } else {
+                                onLoginFailed();
+                            }
+                        } else {
+                            onLoginFailed();
+                        }
+
                         //onLoginSuccess(startActivity(new Intent(this, SettingsActivity.class)););
                         // onLoginFailed();
                         progressDialog.dismiss();
@@ -252,7 +246,6 @@ public class LoginActivity extends AppCompatActivity {
                 // TODO: Implement successful signup logic here
                 // By default we just finish the Activity and log them in automatically
                 this.finish();
-
             }
         }
     }
@@ -274,10 +267,10 @@ public class LoginActivity extends AppCompatActivity {
 
     //@Override
     //public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-        //if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //startActivity(new Intent(this, BrowserActivity.class));
-        //}
-        //return true;
+    //if (keyCode == KeyEvent.KEYCODE_BACK) {
+    //startActivity(new Intent(this, BrowserActivity.class));
+    //}
+    //return true;
     //}
 
     public void onLoginFailed() {
@@ -305,7 +298,15 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _passwordText.setError(null);
-            
+            if (email.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail)) {
+                if (password.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword)) {
+                    onLoginSuccess();
+                } else {
+                    onLoginFailed();
+                }
+            } else {
+                onLoginFailed();
+            }
         }
 
         return valid;

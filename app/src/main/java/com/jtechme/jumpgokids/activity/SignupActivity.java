@@ -83,6 +83,10 @@ public class SignupActivity extends AppCompatActivity {
         String UserEmail = _emailText.getText().toString();
         String UserPassword = _passwordText.getText().toString();
 
+        com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail = _emailText.getText().toString();
+        com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword = _passwordText.getText().toString();
+
+
         // TODO: Implement your own signup logic here.
 
         //parental email
@@ -91,6 +95,7 @@ public class SignupActivity extends AppCompatActivity {
             OutputStreamWriter out=
 
                     //new OutputStreamWriter(openFileOutput(STOREEMAIL, 0));
+                    //new OutputStreamWriter(openFileOutput(UserEmail, 0));
                     new OutputStreamWriter(openFileOutput(UserEmail, 0));
                     //new OutputStreamWriter(openFileOutput(R.raw.ParentalEmail, 0));
 
