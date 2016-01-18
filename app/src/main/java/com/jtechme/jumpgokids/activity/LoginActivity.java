@@ -183,8 +183,16 @@ public class LoginActivity extends AppCompatActivity {
         //});
     }
 
+    String loginEmail = _emailText.getText().toString();
+    String loginPassword = _passwordText.getText().toString();
+
     public void login() {
         Log.d(TAG, "Login");
+
+        final String email = _emailText.getText().toString();
+        loginEmail = _emailText.getText().toString();
+        final String password = _passwordText.getText().toString();
+        loginPassword = _passwordText.getText().toString();
 
         if (!validate()) {
             onLoginFailed();
@@ -199,8 +207,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        //String email = _emailText.getText().toString();
+        //String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
 
@@ -219,6 +227,15 @@ public class LoginActivity extends AppCompatActivity {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
                         onLoginSuccess();
+                        //if (email.contentEquals(SignupActivity.UserEmail)) {
+                            //if (password.contentEquals(SignupActivity.UserPassword)) {
+                                //onLoginSuccess();
+                            //} else {
+                                //onLoginFailed();
+                            //}
+                        //} else {
+                            //onLoginFailed();
+                        //}
                         //onLoginSuccess(startActivity(new Intent(this, SettingsActivity.class)););
                         // onLoginFailed();
                         progressDialog.dismiss();
@@ -235,6 +252,7 @@ public class LoginActivity extends AppCompatActivity {
                 // TODO: Implement successful signup logic here
                 // By default we just finish the Activity and log them in automatically
                 this.finish();
+
             }
         }
     }
@@ -279,15 +297,7 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _emailText.setError(null);
-            if (email.contentEquals(SignupActivity.UserEmail)) {
-                if (password.contentEquals(SignupActivity.UserPassword)) {
-                    onLoginSuccess();
-                } else {
-                    onLoginFailed();
-                }
-            } else {
-                onLoginFailed();
-            }
+
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
@@ -295,15 +305,7 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _passwordText.setError(null);
-            if (email.contentEquals(SignupActivity.UserEmail)) {
-                if (password.contentEquals(SignupActivity.UserPassword)) {
-                    onLoginSuccess();
-                } else {
-                    onLoginFailed();
-                }
-            } else {
-                onLoginFailed();
-            }
+            
         }
 
         return valid;
