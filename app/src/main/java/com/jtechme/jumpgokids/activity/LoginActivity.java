@@ -111,13 +111,20 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.VideoView;
 
+import com.jtechme.jumpgokids.preference.ParentalAccounts;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -158,6 +165,9 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.btn_login) Button _loginButton;
     //@Bind(R.id.link_signup) TextView _signupLink;
 
+    String AccountEmail = "";
+    String AccountPass = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -183,6 +193,26 @@ public class LoginActivity extends AppCompatActivity {
         //});
     }
 
+    public static String convertStreamToString(InputStream is) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line).append("\n");
+        }
+        reader.close();
+        return sb.toString();
+    }
+
+    public static String getStringFromFile (String filePath) throws Exception {
+        File fl = new File(filePath);
+        FileInputStream fin = new FileInputStream(fl);
+        String ret = convertStreamToString(fin);
+        //Make sure you close all streams.
+        fin.close();
+        return ret;
+    }
+
     public void login() {
         Log.d(TAG, "Login");
 
@@ -202,10 +232,71 @@ public class LoginActivity extends AppCompatActivity {
         final String email = _emailText.getText().toString();
         final String password = _passwordText.getText().toString();
 
+        //String AccountEmail = "";
+        //String AccountPass = "";
+
+        try {
+
+            //String userEmailFile = "/mnt/sdcard/userEmailFile.txt";
+            String userEmailFile = "userEmailFile.txt";
+            //String string = "hello world!";
+
+            String file = userEmailFile;
+            InputStream in = null;
+            try {
+                in = new BufferedInputStream(new FileInputStream(file));
+                new FileReader(file);
+                //AccountEmail = file;
+                FileInputStream fin = new FileInputStream(userEmailFile);
+                String ret = convertStreamToString(fin);
+                AccountEmail = ret;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                if (in != null) {
+                    in.close();
+                }
+            }
+
+            //FileInputStream fos = openFileInput(userEmailFile, Context.MODE_PRIVATE);
+            //fos.write(UserEmail.getBytes());
+            //fos.close();
+
+            //String userPassFile = "/mnt/sdcard/userPassFile.txt";
+            String userPassFile = "userPassFile.txt";
+            //String string = "hello world!";
+
+            String file1 = userPassFile;
+            InputStream in1 = null;
+            try {
+                in1 = new BufferedInputStream(new FileInputStream(file1));
+                new FileReader(file1);
+                //AccountEmail = file;
+                FileInputStream fin1 = new FileInputStream(userEmailFile);
+                String ret = convertStreamToString(fin1);
+                AccountPass = ret;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                if (in1 != null) {
+                    in1.close();
+                }
+            }
+
+            //FileOutputStream fos1 = openFileOutput(userPassFile, Context.MODE_PRIVATE);
+            //fos1.write(UserPassword.getBytes());
+            //fos1.close();
+        }
+        catch (Throwable t) {
+
+        }
+
         // TODO: Implement your own authentication logic here.
 
-        if (email.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail)) {
-            if (password.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword)) {
+        //if (email.contentEquals(ParentalAccounts.UserEmail)) {
+        if (email.contentEquals(AccountEmail)) {
+            //if (password.contentEquals(ParentalAccounts.UserPassword)) {
+            if (password.contentEquals(AccountPass)) {
                 onLoginSuccess();
             } else {
                 onLoginFailed();
@@ -214,14 +305,18 @@ public class LoginActivity extends AppCompatActivity {
             onLoginFailed();
         }
 
-        new android.os.Handler().postDelayed(
+        //final String finalAccountEmail = AccountEmail;
+        //final String finalAccountPass = AccountPass;
+        new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
                         //onLoginSuccess();
 
-                        if (email.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail)) {
-                            if (password.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword)) {
+                        //if (email.contentEquals(ParentalAccounts.UserEmail)) {
+                        if (email.contentEquals(AccountEmail)) {
+                            //if (password.contentEquals(ParentalAccounts.UserPassword)) {
+                            if (password.contentEquals(AccountPass)) {
                                 onLoginSuccess();
                             } else {
                                 onLoginFailed();
@@ -298,8 +393,10 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _passwordText.setError(null);
-            if (email.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserEmail)) {
-                if (password.contentEquals(com.jtechme.jumpgokids.preference.ParentalAccounts.UserPassword)) {
+            //if (email.contentEquals(ParentalAccounts.UserEmail)) {
+            if (email.contentEquals(AccountEmail)) {
+                //if (password.contentEquals(ParentalAccounts.UserPassword)) {
+                if (password.contentEquals(AccountPass)) {
                     onLoginSuccess();
                 } else {
                     onLoginFailed();

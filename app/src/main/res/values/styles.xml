@@ -3,18 +3,18 @@
 
     <style name="Theme.SettingsTheme" parent="Theme.AppCompat.Light">
 
-        <!-- customize the color palette -->
-        <item name="android:windowBackground">@null</item>
-        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
-        <item name="listBackground">@drawable/list_bg</item>
-        <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryDark">@color/secondary_color_settings</item>
-        <item name="colorAccent">@color/accent_color</item>
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="dividerColor">@color/divider_light</item>
-    </style>
+    <!-- customize the color palette -->
+    <item name="android:windowBackground">@null</item>
+    <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
+    <item name="listBackground">@drawable/list_bg</item>
+    <item name="colorPrimary">@color/primary_color</item>
+    <item name="colorPrimaryDark">@color/secondary_color_settings</item>
+    <item name="colorAccent">@color/accent_color</item>
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="dividerColor">@color/divider_light</item>
+</style>
 
     <style name="Theme.SettingsTheme.Dark" parent="Theme.AppCompat">
 
@@ -158,6 +158,36 @@
         <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@color/iron</item>
         <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="Theme.DrawerColors" parent="Theme.AppCompat.Light">
+
+    <!-- customize the color palette -->
+    <item name="android:windowBackground">@null</item>
+    <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
+    <item name="listBackground">@drawable/list_bg</item>
+    <item name="colorPrimary">@color/drawer_color_main</item>
+    <item name="colorPrimaryDark">@color/drawer_color_second</item>
+    <item name="colorAccent">@color/drawer_accent</item>
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="dividerColor">@color/divider_light</item>
+</style>
+
+    <style name="Theme.DrawerColors.Bookmarks" parent="Theme.AppCompat">
+
+        <!-- customize the color palette -->
+        <item name="android:windowBackground">@null</item>
+        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
+        <item name="listBackground">@drawable/list_bg</item>
+        <item name="colorPrimary">@color/drawer_color_main_b</item>
+        <item name="colorPrimaryDark">@color/drawer_color_second_b</item>
+        <item name="colorAccent">@color/drawer_accent_b</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="dividerColor">@color/divider_light</item>
     </style>
 
 </resources>

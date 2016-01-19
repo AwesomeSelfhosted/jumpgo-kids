@@ -9,7 +9,7 @@
         android:id="@+id/bookmark_title"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/dividerColor"
+        android:background="?attr/colorPrimary"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -53,7 +53,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/dividerColor"
+        android:background="?attr/colorPrimary"
         android:baselineAligned="false"
         android:orientation="horizontal"
         android:weightSum="3">

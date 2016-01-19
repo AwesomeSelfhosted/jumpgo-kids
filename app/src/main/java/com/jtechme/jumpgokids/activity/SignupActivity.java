@@ -6,6 +6,7 @@
 package com.jtechme.jumpgokids.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,7 +18,10 @@ import android.widget.Toast;
 
 import com.jtechme.jumpgokids.R;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 import butterknife.ButterKnife;
@@ -97,8 +101,22 @@ public class SignupActivity extends AppCompatActivity {
                     //new OutputStreamWriter(openFileOutput(STOREEMAIL, 0));
                     //new OutputStreamWriter(openFileOutput(UserEmail, 0));
                     new OutputStreamWriter(openFileOutput(UserEmail, 0));
+            BufferedReader BR_intFile = new BufferedReader(new InputStreamReader(openFileInput("file")));
                     //new OutputStreamWriter(openFileOutput(R.raw.ParentalEmail, 0));
 
+            String userEmailFile = "userEmailFile.txt";
+            //String string = "hello world!";
+
+            FileOutputStream fos = openFileOutput(userEmailFile, Context.MODE_PRIVATE);
+            fos.write(UserEmail.getBytes());
+            fos.close();
+
+            String userPassFile = "userPassFile.txt";
+            //String string = "hello world!";
+
+            FileOutputStream fos1 = openFileOutput(userPassFile, Context.MODE_PRIVATE);
+            fos1.write(UserPassword.getBytes());
+            fos1.close();
             //out.write(txtEditor.getText().toString());
             //out.write(email.toString());
             out.write(_emailText.getText().toString());

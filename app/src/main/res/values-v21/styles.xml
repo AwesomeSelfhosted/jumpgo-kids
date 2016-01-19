@@ -128,4 +128,36 @@
         <item name="android:windowTranslucentStatus">false</item>
     </style>
 
+    <style name="Theme.DrawerColors.Bookmarks" parent="Theme.AppCompat">
+
+        <!-- customize the color palette -->
+        <item name="android:windowBackground">@null</item>
+        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
+        <item name="listBackground">@drawable/list_bg</item>
+        <item name="colorPrimary">@color/drawer_color_main_b</item>
+        <item name="colorPrimaryDark">@color/drawer_color_second_b</item>
+        <item name="colorAccent">@color/drawer_accent_b</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="dividerColor">@color/divider_light</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Theme.DrawerColors" parent="Theme.AppCompat.Light">
+
+        <!-- customize the color palette -->
+        <item name="android:windowBackground">@null</item>
+        <item name="toolbarSettingsBackground">@drawable/toolbar_elevate</item>
+        <item name="listBackground">@drawable/list_bg</item>
+        <item name="colorPrimary">@color/drawer_color_main</item>
+        <item name="colorPrimaryDark">@color/drawer_color_second</item>
+        <item name="colorAccent">@color/drawer_accent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="dividerColor">@color/divider_light</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
 </resources>

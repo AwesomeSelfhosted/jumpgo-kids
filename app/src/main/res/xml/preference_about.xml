@@ -42,6 +42,17 @@
             </intent>
         </Preference>
         <Preference
+            android:summary="@string/goc_license"
+            android:title="@string/login_signup">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/JTechMe/GOC-General-Open-Control-Licence-v1.0">
+                <extra
+                    android:name="SOURCE"
+                    android:value="SELF" />
+            </intent>
+        </Preference>
+        <Preference
             android:summary="@string/apache"
             android:title="@string/android_open_source_project">
             <intent

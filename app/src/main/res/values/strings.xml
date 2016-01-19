@@ -232,5 +232,6 @@
     <string name="signup">Signup</string>
     <string name="useremail"></string>
     <string name="userpassword"></string>
+    <string name="login_signup">MaterialLoginDemo</string>
 
 </resources>
