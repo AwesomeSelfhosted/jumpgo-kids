@@ -1,13 +1,13 @@
-#JumpGo Kids [![Build Status](https://travis-ci.org/JTechMe/JumpGo.svg)](https://travis-ci.org/JTechMe/JumpGo)
+#JumpGo Kids [![Build Status](https://travis-ci.org/JTechMe/JumpGo-Kids.svg?branch=master)](https://travis-ci.org/JTechMe/JumpGo-Kids)
 ####The internet made safer!
 #![](ic_launcher_small.png)
 ####Download
 * [Download APK from here](https://github.com/JTechMe/JumpGo-Kids/releases)
 
-* [Download from Google Play](https://play.google.com/store/apps/details?id=com.jtechme.jumpgo)
+* [Download from Google Play](https://play.google.com/store/apps/details?id=com.jtechme.jumpgokids)
 
 ####Master Branch
-* [![Build Status](https://travis-ci.org/JTechMe/JumpGo.svg)](https://travis-ci.org/JTechMe/JumpGo)
+* [![Build Status](https://travis-ci.org/JTechMe/JumpGo-Kids.svg?branch=master)](https://travis-ci.org/JTechMe/JumpGo-Kids)
 
 ####Features
 * Parental Controls
